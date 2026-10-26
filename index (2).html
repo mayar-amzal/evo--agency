@@ -87,7 +87,7 @@
           <p>Nous identifions les entreprises, les décideurs ou les particuliers qui correspondent à votre marché, puis nous lançons la prise de contact.</p>
           <ul class="subs">
             <li><b>Fichiers B2B ciblés</b><span>Par secteur d’activité (code NAF), taille, effectif, zone géographique et fonction du décideur.</span></li>
-            <li><b>Fichiers B2C conformes RGPD</b><span>Particuliers ciblés par zone, tranche d’âge, type de logement ou profil, nettoyés de la liste Bloctel.</span></li>
+            <li><b>Fichiers B2C conformes RGPD</b><span>Particuliers ciblés par zone, tranche d’âge, type de logement ou profil, issus de contacts ayant donné leur consentement préalable à être appelés.</span></li>
             <li><b>Campagnes mailing &amp; SMS</b><span>Messages personnalisés, envois ciblés, relances automatiques et suivi des réponses.</span></li>
             <li><b>Data + appels</b><span>Le fichier et la campagne téléphonique confiés à une seule équipe, du ciblage jusqu’au rendez-vous.</span></li>
           </ul>
@@ -167,7 +167,7 @@
         <span class="ico"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#7FB2FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span>
         <div>
           <h3>Fichiers B2B &amp; B2C conformes au RGPD</h3>
-          <p>Nos fichiers sont constitués et transmis dans le respect du Règlement général sur la protection des données. Les fichiers particuliers (B2C) sont issus de contacts ayant accepté d’être sollicités et sont nettoyés de la liste d’opposition Bloctel avant chaque campagne téléphonique.</p>
+          <p>Nos fichiers sont constitués et transmis dans le respect du Règlement général sur la protection des données. Depuis le 11 août 2026, un particulier ne peut être démarché par téléphone que s’il y a consenti au préalable, ou dans le cadre d’un contrat en cours. Nos fichiers B2C ne contiennent que des contacts ayant donné ce consentement, avec sa preuve (date, source, finalité), et chaque personne peut le retirer à tout moment.</p>
         </div>
       </div>
     </div>
@@ -376,7 +376,7 @@
         <div class="sx-field"><label for="e-date">Date de début souhaitée</label><input id="e-date" name="Début" type="date"></div>
         <div class="sx-field sx-full"><label for="e-desc">Description de la mission *</label><textarea id="e-desc" name="Description" placeholder="Tâches, volume horaire, logiciels utilisés…" required></textarea></div>
         <input class="sx-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label class="sx-consent" for="e-ok"><input id="e-ok" type="checkbox" required><span>J’accepte qu’EVO Agency publie cette annonce et transmette mes coordonnées aux secrétaires abonnées.</span></label>
+        <label class="sx-consent" for="e-ok"><input id="e-ok" type="checkbox" required><span>J’accepte qu’EVO Agency publie cette annonce et transmette mes coordonnées aux secrétaires abonnées, conformément aux <a href="#cgv">CGV</a>.</span></label>
         <p class="sx-status" hidden role="status"></p>
         <button class="btn btn-primary" type="submit">Envoyer mon annonce</button>
       </form>
@@ -393,7 +393,7 @@
           <select id="s-mode" name="Mode"><option>Sur site et à distance</option><option>À distance uniquement</option><option>Sur site uniquement</option></select></div>
         <div class="sx-field sx-full"><label for="s-comp">Compétences principales</label><input id="s-comp" name="Compétences" placeholder="Ex. : facturation, agenda, secrétariat médical, saisie…"></div>
         <input class="sx-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label class="sx-consent" for="s-ok"><input id="s-ok" type="checkbox" required><span>J’accepte d’être recontactée par EVO Agency pour finaliser mon inscription à 29,90 € par an.</span></label>
+        <label class="sx-consent" for="s-ok"><input id="s-ok" type="checkbox" required><span>J’accepte d’être recontactée par EVO Agency pour finaliser mon inscription à 29,90 € par an, et j’ai lu les <a href="#cgv">CGV</a>.</span></label>
         <p class="sx-status" hidden role="status"></p>
         <button class="btn btn-primary" type="submit">Demander mon accès</button>
       </form>
@@ -467,7 +467,7 @@
           </select></div>
         <div class="field full"><label for="f-msg">Votre besoin</label><textarea id="f-msg" name="Message" placeholder="Cible, objectifs, délais…"></textarea></div>
         <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <label class="consent" for="f-ok"><input id="f-ok" type="checkbox" required><span>J’accepte qu’EVO Agency utilise ces informations pour me recontacter au sujet de ma demande.</span></label>
+        <label class="consent" for="f-ok"><input id="f-ok" type="checkbox" required><span>J’accepte qu’EVO Agency utilise ces informations pour me recontacter au sujet de ma demande (voir <a href="#confidentialite">données personnelles</a>).</span></label>
         <p class="status" id="f-status" role="status" hidden></p>
         <button class="btn btn-primary" type="submit" id="f-btn">Envoyer ma demande</button>
       </form>
@@ -478,10 +478,114 @@
 <footer>
   <div class="wrap">
     <span>© 2026 EVO Agency · Agence de développement commercial et marketing</span>
-    <span><a href="#secretaires" style="color:#FFFFFF;text-decoration:none">Annonces secrétaires</a> · <a href="cgv.html" style="color:#FFFFFF;text-decoration:none">CGV</a> · contact@evo-agency.fr · +33 7 66 81 94 48</span>
+    <span class="foot-links"><a href="#mentions-legales">Mentions légales</a> · <a href="#cgv">CGV</a> · <a href="#confidentialite">Données personnelles</a> · <a href="#secretaires">Annonces secrétaires</a> · contact@evo-agency.fr · +33 7 66 81 94 48</span>
   </div>
 </footer>
 
+<!-- Pages légales : s’ouvrent par ancre (#mentions-legales, #cgv, #confidentialite) -->
+<section class="legal-page" id="mentions-legales" aria-label="Mentions légales">
+  <div class="legal-inner">
+    <div class="legal-top"><span class="eyebrow">Informations légales</span><a class="legal-close" href="#top">Fermer ✕</a></div>
+    <h1>Mentions légales</h1>
+    <p class="legal-date">Dernière mise à jour : 26 octobre 2026</p>
+
+    <h3>1. Éditeur du site</h3>
+    <p>Le site evo-agency.fr est édité par <strong>EVO Agency</strong>, nom commercial de <strong>M. Zakari BEGUE</strong>, entrepreneur individuel.</p>
+    <ul>
+      <li>Siège : 9-11, 9 allée de l’Arche, 92400 Courbevoie</li>
+      <li>SIREN : 790 892 442 · SIRET : 790 892 442 00019 · Inscrit au Registre national des entreprises (RNE) · Code NAF : 82.99Z</li>
+      <li>N° de TVA intracommunautaire : FR11 790 892 442</li>
+      <li>Email : <a href="mailto:contact@evo-agency.fr">contact@evo-agency.fr</a> · Téléphone : +33 7 66 81 94 48</li>
+      <li>Directeur de la publication : Zakari BEGUE</li>
+    </ul>
+
+    <h3>2. Hébergement</h3>
+    <p>Hostinger International Ltd, 61 Lordou Vironos Street, 6023 Larnaca, Chypre — <a href="https://www.hostinger.fr" target="_blank" rel="noopener">www.hostinger.fr</a>.</p>
+
+    <h3>3. Propriété intellectuelle</h3>
+    <p>L’ensemble des éléments du site (textes, logo, visuels, mise en page) est la propriété d’EVO Agency ou utilisé avec autorisation. Toute reproduction ou réutilisation, totale ou partielle, sans accord écrit préalable est interdite (articles L.335-2 et suivants du Code de la propriété intellectuelle).</p>
+
+    <h3>4. Responsabilité</h3>
+    <p>EVO Agency s’efforce de fournir des informations exactes et à jour, sans pouvoir garantir l’absence d’erreur. Les annonces présentées comme « Exemple » dans la rubrique Secrétaires sont fictives et illustratives. Les annonces réelles sont publiées sous la responsabilité de l’entreprise qui les dépose.</p>
+
+    <h3 id="confidentialite">5. Données personnelles</h3>
+    <p><strong>Responsable du traitement :</strong> EVO Agency, joignable à <a href="mailto:contact@evo-agency.fr">contact@evo-agency.fr</a>.</p>
+    <p><strong>Données collectées :</strong> celles saisies dans les formulaires (nom, société, email, téléphone, ville, SIRET, description de besoin ou de mission).</p>
+    <p><strong>Finalités et bases légales :</strong> répondre aux demandes de devis et préparer un contrat (mesures précontractuelles) ; publier les annonces et gérer les abonnements secrétaires (exécution du contrat) ; prospection commerciale B2B (intérêt légitime) ; obligations comptables (obligation légale).</p>
+    <p><strong>Destinataires :</strong> EVO Agency uniquement, et ses prestataires techniques : Hostinger (hébergement et messagerie) et EmailJS (acheminement des formulaires par email). Pour la rubrique Secrétaires, les coordonnées de l’entreprise qui dépose une annonce sont communiquées aux secrétaires abonnées, avec son accord.</p>
+    <p><strong>Durée de conservation :</strong> 3 ans après le dernier contact pour les prospects ; durée du contrat puis 5 ans pour les clients ; 10 ans pour les pièces comptables.</p>
+    <p><strong>Vos droits :</strong> accès, rectification, effacement, limitation, opposition et portabilité, en écrivant à <a href="mailto:contact@evo-agency.fr">contact@evo-agency.fr</a>. Vous pouvez aussi saisir la CNIL (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</p>
+    <p><strong>Cookies :</strong> le site n’utilise pas de cookie publicitaire ni de mesure d’audience. Si un outil de ce type est ajouté, un bandeau de consentement sera mis en place.</p>
+
+    <h3>6. Droit applicable</h3>
+    <p>Les présentes mentions sont régies par le droit français.</p>
+
+    <p class="legal-next"><a href="#cgv">Consulter les conditions générales de vente →</a></p>
+  </div>
+</section>
+
+<section class="legal-page" id="cgv" aria-label="Conditions générales de vente">
+  <div class="legal-inner">
+    <div class="legal-top"><span class="eyebrow">Informations légales</span><a class="legal-close" href="#top">Fermer ✕</a></div>
+    <h1>Conditions générales de vente</h1>
+    <p class="legal-date">En vigueur au 26 octobre 2026</p>
+
+    <h3>Article 1 – Objet et champ d’application</h3>
+    <p>Les présentes CGV régissent les prestations vendues par EVO Agency (identifiée dans les <a href="#mentions-legales">mentions légales</a>) : régie call center (appels entrants et sortants, prise de rendez-vous, SAV, téléprospection), prospection B2B, génération de leads, fourniture de fichiers B2B et B2C, et accès à la rubrique d’annonces Secrétaires. Elles s’adressent exclusivement à des <strong>professionnels</strong> et prévalent sur tout autre document du client, sauf accord écrit contraire.</p>
+
+    <h2>Partie A – Prestations de développement commercial</h2>
+
+    <h3>Article 2 – Devis et commande</h3>
+    <p>Chaque prestation fait l’objet d’un devis personnalisé, valable 30 jours. La commande est ferme à réception du devis signé (ou accepté par email) et, le cas échéant, de l’acompte prévu. Le devis précise la prestation, le volume, la durée, les objectifs éventuels et le prix.</p>
+
+    <h3>Article 3 – Prix</h3>
+    <p>Les prix sont exprimés en euros hors taxes, majorés de la TVA au taux en vigueur. Les positions de téléopérateurs sont facturées mensuellement, par position, selon le tarif indiqué au devis.</p>
+
+    <h3>Article 4 – Paiement</h3>
+    <p>Sauf mention contraire au devis : acompte de 30 % à la commande, solde à réception de facture, au plus tard à 30 jours date de facture ; prestations récurrentes facturées mensuellement à terme à échoir. Paiement par virement bancaire.</p>
+    <p>Tout retard de paiement entraîne de plein droit, sans mise en demeure, des pénalités au taux de trois fois le taux d’intérêt légal, ainsi qu’une indemnité forfaitaire pour frais de recouvrement de 40 € (articles L.441-10 et D.441-5 du Code de commerce). EVO Agency peut suspendre ses prestations jusqu’au paiement complet.</p>
+
+    <h3>Article 5 – Exécution et obligations</h3>
+    <p>EVO Agency est tenue d’une <strong>obligation de moyens</strong> : elle met en œuvre les ressources et le savoir-faire nécessaires, sans garantir un nombre de ventes ou de rendez-vous, sauf engagement chiffré écrit au devis. Le client fournit en temps utile les informations nécessaires (argumentaire, offre, cibles, disponibilités d’agenda) et reste seul responsable de son offre et de la suite donnée aux rendez-vous.</p>
+
+    <h3>Article 6 – Démarchage téléphonique et conformité des fichiers</h3>
+    <p><strong>Particuliers.</strong> Depuis le 11 août 2026, le démarchage téléphonique d’un consommateur n’est autorisé que s’il a donné son consentement préalable, libre, spécifique, éclairé et sans ambiguïté, ou s’il existe un contrat en cours avec l’entreprise pour laquelle l’appel est passé. Les campagnes B2C d’EVO Agency ne sont menées que dans ce cadre : chaque contact appelé dispose d’un consentement documenté (date, source, finalité), qu’EVO Agency conserve et peut produire en cas de contrôle.</p>
+    <p><strong>Déroulé des appels.</strong> À chaque appel, le téléopérateur s’identifie, indique pour le compte de quelle entreprise il appelle et l’objet commercial de l’appel. Toute personne qui retire son consentement ou s’oppose à être rappelée est retirée immédiatement des fichiers. Les appels sont passés uniquement aux jours, horaires et fréquences autorisés par la réglementation en vigueur.</p>
+    <p><strong>Professionnels.</strong> La prospection B2B s’adresse à des interlocuteurs contactés dans le cadre de leur activité professionnelle, avec une offre en lien avec cette activité, dans le respect du RGPD et de leur droit d’opposition.</p>
+    <p><strong>Fichiers clients.</strong> Lorsque le client fournit ses propres fichiers, il garantit que les contacts B2C ont consenti au démarchage pour son compte ou sont ses clients sous contrat, et transmet la preuve de ce consentement sur demande. EVO Agency peut refuser d’appeler un fichier non conforme. Le client reste responsable de l’offre présentée et des sanctions résultant d’informations inexactes qu’il a fournies.</p>
+    <p><strong>Usage des fichiers livrés.</strong> Les fichiers livrés sont réservés à l’usage du client défini au devis, ne peuvent être revendus ni cédés, et leur utilisation ultérieure relève de la responsabilité du client, qui devient responsable de traitement. Lorsqu’EVO Agency traite des données pour le compte du client, elle agit en sous-traitant au sens de l’article 28 du RGPD ; un accord de traitement des données est annexé au devis sur demande.</p>
+
+    <h3>Article 7 – Durée et résiliation</h3>
+    <p>Les prestations récurrentes sont conclues pour la durée minimale indiquée au devis, puis reconduites tacitement par périodes d’un mois, résiliables par écrit avec un préavis de 30 jours. En cas de manquement grave de l’une des parties, non corrigé 15 jours après mise en demeure par email ou courrier recommandé, l’autre partie peut résilier de plein droit. Les sommes dues pour les prestations réalisées restent exigibles.</p>
+
+    <h3>Article 8 – Confidentialité et non-sollicitation</h3>
+    <p>Chaque partie garde confidentielles les informations reçues de l’autre pendant le contrat et 2 ans après. Le client s’interdit de solliciter directement les téléopérateurs d’EVO Agency affectés à sa mission pendant le contrat et 12 mois après.</p>
+
+    <h2>Partie B – Rubrique Secrétaires</h2>
+
+    <h3>Article 9 – Dépôt d’annonce (entreprises)</h3>
+    <p>Le dépôt d’annonce est gratuit. L’entreprise garantit l’exactitude et la licéité de son annonce et accepte que ses coordonnées soient transmises aux secrétaires abonnées. EVO Agency peut refuser ou retirer toute annonce contraire à la loi (notamment discriminatoire) ou aux présentes CGV.</p>
+
+    <h3>Article 10 – Accès secrétaire</h3>
+    <p>L’accès est réservé aux secrétaires indépendantes (micro-entreprise ou société). Il est vendu <strong>29,90 € TTC pour 12 mois</strong> à compter de son activation, sans reconduction automatique. Il donne accès aux annonces et aux coordonnées des entreprises, ainsi qu’aux alertes email. Les identifiants sont personnels.</p>
+    <p>Geste commercial : l’abonnée peut demander l’annulation et le remboursement intégral dans les 14 jours suivant l’activation, tant qu’aucune coordonnée d’entreprise n’a été consultée.</p>
+
+    <h3>Article 11 – Rôle d’EVO Agency</h3>
+    <p>EVO Agency met en relation entreprises et secrétaires sans être partie aux missions conclues entre elles. Elle ne perçoit aucune commission, ne garantit pas l’obtention de missions et ne répond ni de l’exécution ni du paiement des missions.</p>
+
+    <h2>Dispositions communes</h2>
+
+    <h3>Article 12 – Responsabilité</h3>
+    <p>La responsabilité d’EVO Agency ne peut être engagée que pour une faute prouvée et se limite aux dommages directs, dans la limite des sommes payées par le client au titre des 3 derniers mois de prestation (ou du prix de l’accès pour la rubrique Secrétaires). Elle est exclue en cas de force majeure au sens de l’article 1218 du Code civil.</p>
+
+    <h3>Article 13 – Droit applicable et litiges</h3>
+    <p>Les présentes CGV sont soumises au droit français. Les parties recherchent d’abord une solution amiable. À défaut, tout litige est porté devant le tribunal compétent du ressort de Nanterre.</p>
+
+    <p class="legal-next"><a href="#mentions-legales">Mentions légales et données personnelles →</a></p>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,3 +1,15 @@
+/* ===== Envoi des formulaires via EmailJS (service SMTP -> contact@evo-agency.fr) =====
+   Les 3 valeurs ci-dessous se copient depuis le tableau de bord EmailJS.
+   Ne JAMAIS mettre la Private Key ici : seule la Public Key va dans le site. */
+var MAIL={publicKey:'7TMyUkjEINIF4UmeE',serviceId:'service_04eg2sj',templateId:'template_cvmw8yh'};
+function sendMail(p){
+  if(!window.emailjs)return Promise.reject(new Error('emailjs indisponible'));
+  return emailjs.send(MAIL.serviceId,MAIL.templateId,p,{publicKey:MAIL.publicKey});
+}
+function nowFr(){return new Date().toLocaleString('fr-FR',{dateStyle:'long',timeStyle:'short'})}
+function joinParts(a){return a.filter(Boolean).join(' · ')}
+function field(d,k,label){return d[k]?label+' : '+d[k]:''}
+
 document.querySelectorAll('.copy').forEach(function(b){
   b.addEventListener('click',function(){
     var t=b.getAttribute('data-copy');
@@ -14,12 +26,16 @@ document.querySelectorAll('.copy').forEach(function(b){
     if(bad){show('err','Merci de remplir les champs marqués d’un * et de cocher la case de consentement.');bad.focus();return}
     var mail=document.getElementById('f-mail');
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value)){show('err','L’adresse email semble incorrecte. Vérifiez-la puis renvoyez.');mail.focus();return}
-    var data={};new FormData(f).forEach(function(v,k){data[k]=v});
-    data._subject='Nouvelle demande de devis – '+(data['Société']||'site EVO Agency');
-    data._template='table';data._captcha='false';
+    var d={};new FormData(f).forEach(function(v,k){d[k]=v});
+    if(d._honey){f.reset();return} /* anti-spam : champ piège rempli par les robots */
+    var params={
+      title:'Demande de devis – '+(d['Société']||'site EVO Agency'),
+      from_name:d['Nom'],from_email:d.email,email:d.email,phone:d['Téléphone'],
+      services:d['Service'],date:nowFr(),
+      message:joinParts([field(d,'Société','Société'),d['Volume']&&d['Volume']!=='Non défini'?'Volume ou durée : '+d['Volume']:'',field(d,'Message','Besoin')])
+    };
     btn.disabled=true;btn.textContent='Envoi en cours…';
-    fetch('https://formsubmit.co/ajax/contact@evo-agency.fr',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-      .then(function(r){return r.json().then(function(j){if(!r.ok||j.success===false||j.success==='false')throw 0})})
+    sendMail(params)
       .then(function(){f.reset();show('ok','Merci, votre demande est envoyée. Nous vous recontactons sous 24 h ouvrées.')})
       .catch(function(){show('err','L’envoi n’a pas abouti. Réessayez, ou écrivez-nous directement à contact@evo-agency.fr.')})
       .then(function(){btn.disabled=false;btn.textContent='Envoyer ma demande'});
@@ -80,11 +96,26 @@ function sel(b){var a=b.parentNode.querySelector('.val');var r=document.createRa
       if(bad){msg('err','Merci de remplir les champs marqués d’un * et de cocher la case de consentement.');bad.focus();return}
       var m=f.querySelector('input[type=email]');
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m.value)){msg('err','L’adresse email semble incorrecte. Vérifiez-la puis renvoyez.');m.focus();return}
-      var data={};new FormData(f).forEach(function(v,k){data[k]=v});
-      data._subject=f.getAttribute('data-subject');data._template='table';data._captcha='false';
+      var d={};new FormData(f).forEach(function(v,k){d[k]=v});
+      if(d._honey){f.reset();return} /* anti-spam */
+      var params;
+      if(f.id==='form-entreprise'){
+        params={
+          title:'Nouvelle annonce secrétaire – '+(d['Intitulé']||d['Société']||''),
+          from_name:d['Contact'],from_email:d.email,email:d.email,phone:d['Téléphone'],
+          services:'Dépôt d’annonce gratuit (entreprise)',date:nowFr(),
+          message:joinParts([field(d,'Société','Société'),field(d,'Intitulé','Mission'),field(d,'Ville','Lieu'),field(d,'Mode','Mode de travail'),field(d,'Type','Type de mission'),field(d,'Début','Début souhaité'),field(d,'Description','Description')])
+        };
+      }else{
+        params={
+          title:'Nouvelle inscription secrétaire (29,90 €/an) – '+(d['Nom']||''),
+          from_name:d['Nom'],from_email:d.email,email:d.email,phone:d['Téléphone'],
+          services:'Accès secrétaire 29,90 € par an',date:nowFr(),
+          message:joinParts([field(d,'SIRET','SIRET'),field(d,'Ville','Ville / département'),field(d,'Mode','Je travaille'),field(d,'Compétences','Compétences')])
+        };
+      }
       btn.disabled=true;btn.textContent='Envoi en cours…';
-      fetch('https://formsubmit.co/ajax/contact@evo-agency.fr',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
-        .then(function(r){return r.json().then(function(j){if(!r.ok||j.success===false||j.success==='false')throw 0})})
+      sendMail(params)
         .then(function(){f.reset();msg('ok',f.id==='form-entreprise'?'Merci, votre annonce est envoyée. Nous la vérifions et la publions sous 24 h ouvrées.':'Merci, votre demande est envoyée. Vous recevrez le lien de paiement et vos accès par email.')})
         .catch(function(){msg('err','L’envoi n’a pas abouti. Réessayez, ou écrivez-nous à contact@evo-agency.fr.')})
         .then(function(){btn.disabled=false;btn.textContent=label});
